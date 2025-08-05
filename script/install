@@ -9,7 +9,7 @@ cd "$(dirname $0)"/..
 echo "› brew bundle"
 brew bundle --file=Brewfile
 
-if [ -f Brewfile.local ]
+if test -f Brewfile.local
 then
     echo "› brew bundle local found"
     brew bundle --file=Brewfile.local

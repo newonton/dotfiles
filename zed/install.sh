@@ -85,7 +85,8 @@ link_file () {
   fi
 }
 
-if [ -d "/Applications/Zed.app" ]; then
+if test -d "/Applications/Zed.app"
+then
   mkdir -p "$HOME/.config/zed"
   link_file "$HOME/.zedrc" "$HOME/.config/zed/settings.json"
   link_file "/Applications/Zed.app/Contents/MacOS/cli" "/usr/local/bin/zed"
