@@ -17,7 +17,12 @@ then
 
   mkdir -p "$HOME/.config/zed"
   ln -s "$HOME/.zedrc" "$HOME/.config/zed/settings.json"
-  sudo ln -s "/Applications/Zed.app/Contents/MacOS/cli" "/usr/local/bin/zed"
+
+  if test ! -L "$HOME/.config/zed/settings.json"
+  then
+    sudo ln -s "/Applications/Zed.app/Contents/MacOS/cli" "/usr/local/bin/zed"
+  fi
+
 fi
 
 exit 0
