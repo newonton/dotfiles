@@ -21,7 +21,7 @@ brew 'spaceman-diff'
 brew 'go'
 brew 'gopls'
 brew 'gofumpt'
-brew 'protoc'
+brew 'protobuf'
 brew 'protoc-gen-go'
 brew 'protoc-gen-go-grpc'
 
