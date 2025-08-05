@@ -6,7 +6,7 @@
 # using Go.
 
 # Check for Go
-if (( $+commands[go] ))
+if ! command -v go >/dev/null 2>&1
 then
   echo "  Installing Go packages for you."
 
