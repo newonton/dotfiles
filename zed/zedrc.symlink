@@ -1,0 +1,111 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+// Other guide: https://www.kevnu.com/en/posts/10
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+//
+// https://gist.github.com/mdouchement/eb8684be330a09bebe66dbf91af16516
+{
+  "ui_font_size": 14,
+  "buffer_font_size": 15,
+  "buffer_font_family": "JetBrains Mono",
+  "theme": "One Dark Pro",
+
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true,
+    "selections_menu": true
+  },
+  "tabs": {
+    "git_status": true,
+    "close_position": "left",
+    "show_diagnostics": "all",
+    "activate_on_close": "neighbour"
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+
+  "tab_size": 4,
+  "hard_tabs": false,
+  "show_whitespaces": "trailing",
+  "auto_indent_on_paste": true,
+  "autosave": "on_window_change",
+  "format_on_save": "off", // Global formating for any type of files breaks a lot of things for existing projects.
+
+  "languages": {
+    "Go": {
+      "tab_size": 4,
+      "hard_tabs": true,
+      "format_on_save": "on",
+      "formatter": "language_server",
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "JSONC": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on"
+    },
+    "YAML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on"
+    },
+    "Shell Script": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on"
+    },
+    "Git Config": {
+      "tab_size": 4,
+      "hard_tabs": false,
+      "format_on_save": "on"
+    }
+  },
+  "file_types": {
+    "YAML": ["*.yml", "*.yml.example", "*.yaml", "*.yaml.example"]
+  },
+
+  "lsp": {
+    "gopls": {
+      // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+      "initialization_options": {
+        "directoryFilters": ["-**/node_modules", "-**/.git"],
+        "formatting.gofumpt": true,
+        "symbolScope": "all",
+        "staticcheck": true,
+        "experimentalPostfixCompletions": true,
+        "analyses": {
+          "nilness": true,
+          "unusedparams": true,
+          "unusedvariable": true,
+          "unusedwrite": true,
+          "useany": true
+        },
+        "codelenses": {
+          "gc_details": true
+        },
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": true,
+          "constantValues": true,
+          "functionTypeParameters": true,
+          "parameterNames": true,
+          "rangeVariableTypes": true
+        }
+      }
+    }
+  },
+
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  }
+}
