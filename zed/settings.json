@@ -69,7 +69,9 @@
     }
   },
   "file_types": {
-    "YAML": ["*.yml", "*.yml.example", "*.yaml", "*.yaml.example"]
+    "YAML": ["*.yml", "*.yml.example", "*.yaml", "*.yaml.example"],
+    "Git Config": ["*gitconfig*"],
+    "Git Ignore": ["*gitignore*"]
   },
 
   "lsp": {

@@ -10,15 +10,13 @@ then
     mv "$HOME/.config/zed/settings.json" "$HOME/.config/zed/settings.json.backup"
   fi
 
-  if test -L "$HOME/.config/zed/settings.json"
+  if test ! -L "$HOME/.config/zed/settings.json"
   then
-    rm "$HOME/.config/zed/settings.json"
+    mkdir -p "$HOME/.config/zed"
+    ln -s "$ZSH/zed/settings.json" "$HOME/.config/zed/settings.json"
   fi
 
-  mkdir -p "$HOME/.config/zed"
-  ln -s "$HOME/.zedrc" "$HOME/.config/zed/settings.json"
-
-  if test ! -L "$HOME/.config/zed/settings.json"
+  if test ! -L "/usr/local/bin/zed"
   then
     sudo ln -s "/Applications/Zed.app/Contents/MacOS/cli" "/usr/local/bin/zed"
   fi
