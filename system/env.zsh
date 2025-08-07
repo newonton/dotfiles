@@ -1,2 +1,0 @@
-export SHELL_SESSIONS_DISABLE=1
-export LESSHISTFILE=/dev/null
