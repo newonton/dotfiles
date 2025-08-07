@@ -30,6 +30,16 @@
     "button": false
   },
 
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "agent": {
+    "use_modifier_to_send": true
+  },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+
   "tab_size": 4,
   "hard_tabs": false,
   "show_whitespaces": "trailing",
@@ -42,6 +52,7 @@
       "tab_size": 4,
       "hard_tabs": true,
       "format_on_save": "on",
+      "language_servers": ["gopls", "golangci-lint"],
       "formatter": "language_server",
       "code_actions_on_format": {
         "source.organizeImports": true
@@ -50,12 +61,14 @@
     "JSONC": {
       "tab_size": 2,
       "hard_tabs": false,
-      "format_on_save": "on"
+      "format_on_save": "on",
+      "show_edit_predictions": false
     },
     "YAML": {
       "tab_size": 2,
       "hard_tabs": false,
-      "format_on_save": "on"
+      "format_on_save": "on",
+      "show_edit_predictions": false
     },
     "Shell Script": {
       "tab_size": 2,
@@ -65,7 +78,8 @@
     "Git Config": {
       "tab_size": 4,
       "hard_tabs": false,
-      "format_on_save": "on"
+      "format_on_save": "on",
+      "show_edit_predictions": false
     }
   },
   "file_types": {
@@ -102,6 +116,11 @@
           "parameterNames": true,
           "rangeVariableTypes": true
         }
+      }
+    },
+    "golangci-lint": {
+      "initialization_options": {
+        "command": ["golangci-lint", "run", "--output.json.path", "stdout", "--issues-exit-code=1", "--show-stats=false"]
       }
     }
   },
