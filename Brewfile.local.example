@@ -1,5 +1,5 @@
-cask_args appdir: '/Applications'
+cask_args appdir: "/Applications"
 
-brew 'example'
-cask 'example'
-mas 'example', id: 0000000000
+brew "example"
+cask "example"
+mas "example", id: 0000000000

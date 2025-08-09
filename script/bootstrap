@@ -3,11 +3,11 @@
 # bootstrap installs things.
 
 cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd -P)
+DOTFILES_ROOT="$(pwd -P)"
 
 set -e
 
-echo ''
+echo ""
 
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
@@ -30,22 +30,22 @@ fail () {
 setup_gitconfig () {
   if test ! -f git/gitconfig.local.symlink
   then
-    info 'setup gitconfig'
+    info "setup gitconfig"
 
-    git_credential='cache'
+    git_credential="cache"
     if [ "$(uname -s)" == "Darwin" ]
     then
-      git_credential='osxkeychain'
+      git_credential="osxkeychain"
     fi
 
-    user ' - What is your github author name?'
+    user " - What is your github author name?"
     read -e git_authorname
-    user ' - What is your github author email?'
+    user " - What is your github author email?"
     read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
 
-    success 'gitconfig'
+    success "gitconfig"
   fi
 }
 
@@ -130,7 +130,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name "*.symlink" -not -path "*.git*")
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
@@ -152,5 +152,5 @@ then
   fi
 fi
 
-echo ''
-echo '  All installed!'
+echo ""
+echo "  All installed!"

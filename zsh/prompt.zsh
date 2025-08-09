@@ -1,6 +1,7 @@
-source $ZSH/zsh/colors.sh
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
+
+source $ZSH/zsh/colors.sh
 
 if (( $+commands[git] ))
 then
@@ -114,7 +115,7 @@ _time() {
 }
 
 _right_align_time() {
-  echo %{$terminfo[sc]%}%{$(echoti hpa $((COLUMNS - 8)))%}$(_time)%{$terminfo[rc]%}
+  echo "%{$terminfo[sc]%}%{$(echoti hpa $((COLUMNS - 8)))%}$(_time)%{$terminfo[rc]%}"
 }
 
-PROMPT=$'$(_logo) $(_username) $(_dir_full) $(_git_all) $(_right_align_time)\n${C[red]}~>${C[reset]} '
+PROMPT=$"$(_logo) $(_username) $(_dir_full) $(_git_all) $(_right_align_time)\n${C[red]}~>${C[reset]} "

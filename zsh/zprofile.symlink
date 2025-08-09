@@ -1,6 +1,6 @@
 export SHELL_SESSIONS_DISABLE=1
 
-export LESSHISTFILE=/dev/null
+export LESSHISTFILE="/dev/null"
 rm -f ~/.lesshst
 
 # Stash your environment variables in ~/.localprofile. This means they'll stay out

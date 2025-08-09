@@ -13,10 +13,10 @@
 #
 # None of this really matters in the big scheme of things, but it bothered me.
 
-hostname=$(scutil --get LocalHostName)
+hostname="$(scutil --get LocalHostName)"
 
 # if hostname contains a hyphen and then a number, remove the hyphen and number
-normal_hostname=$(echo "$hostname" | sed 's/-[0-9]*$//')
+normal_hostname="$(echo "$hostname" | sed "s/-[0-9]*$//")"
 
 # if our hostname was changed by macOS, change it back
 if [ "$normal_hostname" != "$hostname" ]; then
