@@ -27,10 +27,39 @@ fail () {
   exit
 }
 
+choose_local_dotfiles () {
+  dotfiles_paths=( $(find "$HOME/Documents" -type d -name "dotfiles" 2>/dev/null) )
+
+  if [ ${#dotfiles_paths[@]} -eq 0 ]; then
+      fail "dotfile not found in $HOME/Documents"
+  fi
+
+  user "Select dotfiles:"
+  for i in "${!dotfiles_paths[@]}"; do
+      printf "    %d) %s\n" "$((i+1))" "${dotfiles_paths[$i]}"
+  done
+
+  read n
+  if [[ "$n" =~ ^[0-9]+$ ]] && [ "$n" -ge 1 ] && [ "$n" -le "${#dotfiles_paths[@]}" ]; then
+    export DOTFILES_LOCAL="${dotfiles_paths[$((n-1))]}"
+    success "use $DOTFILES_LOCAL"
+  else
+    fail "wrong number"
+  fi
+}
+
+
 setup_gitconfig () {
   if test ! -f git/gitconfig.local.symlink
   then
     info "setup gitconfig"
+
+    if test -f $DOTFILES_LOCAL/git/gitconfig.local.symlink
+    then
+      ln -s $DOTFILES_LOCAL/git/gitconfig.local.symlink git/gitconfig.local.symlink
+      success "gitconfig linked"
+      return
+    fi
 
     git_credential="cache"
     if [ "$(uname -s)" == "Darwin" ]
@@ -46,6 +75,15 @@ setup_gitconfig () {
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
 
     success "gitconfig"
+  fi
+}
+
+setup_brewfile () {
+  if test ! -f Brewfile.local && test -f $DOTFILES_LOCAL/homebrew/Brewfile.local
+  then
+    ln -s $DOTFILES_LOCAL/homebrew/Brewfile.local Brewfile.local
+    success "brewfile linked"
+    return
   fi
 }
 
@@ -137,7 +175,9 @@ install_dotfiles () {
   done
 }
 
+choose_local_dotfiles
 setup_gitconfig
+setup_brewfile
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
