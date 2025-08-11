@@ -118,4 +118,4 @@ _right_align_time() {
   echo "%{$terminfo[sc]%}%{$(echoti hpa $((COLUMNS - 8)))%}$(_time)%{$terminfo[rc]%}"
 }
 
-PROMPT=$"$(_logo) $(_username) $(_dir_full) $(_git_all) $(_right_align_time)\n${C[red]}~>${C[reset]} "
+PROMPT=$'$(_logo) $(_username) $(_dir_full) $(_git_all) $(_right_align_time)\n${C[red]}~>${C[reset]} '
