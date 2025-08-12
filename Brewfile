@@ -14,7 +14,6 @@ brew "zsh-completions"
 brew "git"
 brew "git-lfs"
 brew "hub"
-brew "spaceman-diff"
 
 brew "go"
 brew "gofumpt"

@@ -21,12 +21,6 @@
     excludesfile = ~/.gitignore
 [credential]
     helper = osxkeychain
-[diff]
-    external = /opt/homebrew/bin/spaceman-diff
-[difftool "spaceman-diff"]
-    cmd = /opt/homebrew/bin/spaceman-diff $LOCAL "" "" $REMOTE "" ""
-[difftool]
-    prompt = false
 [fetch]
     prune = true
 [filter "lfs"]
