@@ -22,9 +22,9 @@
 [credential]
     helper = osxkeychain
 [diff]
-    tool = spaceman-diff
+    external = /opt/homebrew/bin/spaceman-diff
 [difftool "spaceman-diff"]
-    command = /opt/homebrew/bin/spaceman-diff
+    cmd = /opt/homebrew/bin/spaceman-diff $LOCAL "" "" $REMOTE "" ""
 [difftool]
     prompt = false
 [fetch]
