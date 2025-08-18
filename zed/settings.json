@@ -64,6 +64,11 @@
         "source.organizeImports": true
       }
     },
+    "Make": {
+      "tab_size": 4,
+      "hard_tabs": true,
+      "format_on_save": "on"
+    },
     "JSONC": {
       "tab_size": 2,
       "hard_tabs": false,
@@ -126,7 +131,14 @@
     },
     "golangci-lint": {
       "initialization_options": {
-        "command": [ "golangci-lint", "run", "--output.json.path", "stdout", "--issues-exit-code=1", "--show-stats=false" ]
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--issues-exit-code=1",
+          "--show-stats=false"
+        ]
       }
     }
   },
