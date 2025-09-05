@@ -10,6 +10,8 @@
 //
 // https://gist.github.com/mdouchement/eb8684be330a09bebe66dbf91af16516
 {
+  "auto_update": false,
+
   "ui_font_size": 14,
   "buffer_font_size": 15,
   "buffer_font_family": "JetBrains Mono",
@@ -58,7 +60,7 @@
       "tab_size": 4,
       "hard_tabs": true,
       "format_on_save": "on",
-      "language_servers": ["gopls", "golangci-lint"],
+      "language_servers": ["gopls" /*, "golangci-lint"*/],
       "formatter": "language_server",
       "code_actions_on_format": {
         "source.organizeImports": true
@@ -128,7 +130,7 @@
           "rangeVariableTypes": true
         }
       }
-    },
+    } /*,
     "golangci-lint": {
       "initialization_options": {
         "command": [
@@ -140,7 +142,7 @@
           "--show-stats=false"
         ]
       }
-    }
+    }*/
   },
 
   "telemetry": {
