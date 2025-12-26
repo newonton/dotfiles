@@ -78,6 +78,26 @@ setup_gitconfig () {
   fi
 }
 
+setup_ssh () {
+  if [ ! -d "$DOTFILES_LOCAL/ssh" ]; then
+    info "no ssh directory in local dotfiles, skipping"
+    return
+  fi
+
+  info "setting up ssh"
+
+  mkdir -p "$HOME/.ssh"
+  chmod 700 "$HOME/.ssh"
+
+  for src in "$DOTFILES_LOCAL/ssh"/*; do
+    [ -f "$src" ] || continue
+
+    link_file "$src" "$HOME/.ssh/$(basename "$src")"
+  done
+
+  success "ssh config linked"
+}
+
 setup_brewfile () {
   if test ! -f Brewfile.local && test -f $DOTFILES_LOCAL/homebrew/Brewfile.local
   then
@@ -177,6 +197,7 @@ install_dotfiles () {
 
 choose_local_dotfiles
 setup_gitconfig
+setup_ssh
 setup_brewfile
 install_dotfiles
 
