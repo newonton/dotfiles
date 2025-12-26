@@ -27,87 +27,6 @@ fail () {
   exit 1
 }
 
-choose_local_dotfiles () {
-  dotfiles_paths=( $(find "$HOME/Documents" -type d -name "dotfiles" 2>/dev/null) )
-
-  if [ ${#dotfiles_paths[@]} -eq 0 ]; then
-      fail "dotfile not found in $HOME/Documents"
-  fi
-
-  user "Select dotfiles:"
-  for i in "${!dotfiles_paths[@]}"; do
-      printf "    %d) %s\n" "$((i+1))" "${dotfiles_paths[$i]}"
-  done
-
-  read n
-  if [[ "$n" =~ ^[0-9]+$ ]] && [ "$n" -ge 1 ] && [ "$n" -le "${#dotfiles_paths[@]}" ]; then
-    link_file "${dotfiles_paths[$((n-1))]}" "$DOTFILES_ROOT/local"
-    success "use ${dotfiles_paths[$((n-1))]}"
-  else
-    fail "wrong number"
-  fi
-}
-
-
-setup_gitconfig () {
-  if test ! -f git/gitconfig.local.symlink
-  then
-    info "setup gitconfig"
-
-    if test -f $DOTFILES_ROOT/local/git/gitconfig.local.symlink
-    then
-      ln -s $DOTFILES_ROOT/local/git/gitconfig.local.symlink git/gitconfig.local.symlink
-      success "gitconfig linked"
-      return
-    fi
-
-    git_credential="cache"
-    if [ "$(uname -s)" == "Darwin" ]
-    then
-      git_credential="osxkeychain"
-    fi
-
-    user " - What is your github author name?"
-    read -e git_authorname
-    user " - What is your github author email?"
-    read -e git_authoremail
-
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
-
-    success "gitconfig"
-  fi
-}
-
-setup_ssh () {
-  if [ ! -d "$DOTFILES_ROOT/local/ssh" ]; then
-    info "no ssh directory in local dotfiles, skipping"
-    return
-  fi
-
-  info "setting up ssh"
-
-  mkdir -p "$HOME/.ssh"
-  chmod 700 "$HOME/.ssh"
-
-  for src in "$DOTFILES_ROOT/local/ssh"/*; do
-    [ -f "$src" ] || continue
-
-    link_file "$src" "$HOME/.ssh/$(basename "$src")"
-  done
-
-  success "ssh config linked"
-}
-
-setup_brewfile () {
-  if test ! -f Brewfile.local && test -f $DOTFILES_ROOT/local/homebrew/Brewfile.local
-  then
-    ln -s $DOTFILES_ROOT/local/homebrew/Brewfile.local Brewfile.local
-    success "brewfile linked"
-    return
-  fi
-}
-
-
 link_file () {
   local src=$1 dst=$2
 
@@ -180,6 +99,94 @@ link_file () {
   then
     ln -s "$1" "$2"
     success "linked $1 to $2"
+  fi
+}
+
+choose_local_dotfiles () {
+  local overwrite_all=false backup_all=false skip_all=false
+
+  dotfiles_paths=( $(find "$HOME/Documents" -type d -name "dotfiles" 2>/dev/null) )
+
+  if [ ${#dotfiles_paths[@]} -eq 0 ]; then
+      fail "dotfile not found in $HOME/Documents"
+  fi
+
+  user "Select dotfiles:"
+  for i in "${!dotfiles_paths[@]}"; do
+      printf "    %d) %s\n" "$((i+1))" "${dotfiles_paths[$i]}"
+  done
+
+  read n
+  if [[ "$n" =~ ^[0-9]+$ ]] && [ "$n" -ge 1 ] && [ "$n" -le "${#dotfiles_paths[@]}" ]; then
+    link_file "${dotfiles_paths[$((n-1))]}" "$DOTFILES_ROOT/local"
+    success "use ${dotfiles_paths[$((n-1))]}"
+  else
+    fail "wrong number"
+  fi
+}
+
+
+setup_gitconfig () {
+  local overwrite_all=false backup_all=false skip_all=false
+
+  if test ! -f git/gitconfig.local.symlink
+  then
+    info "setup gitconfig"
+
+    if test -f $DOTFILES_ROOT/local/git/gitconfig.local.symlink
+    then
+      link_file $DOTFILES_ROOT/local/git/gitconfig.local.symlink git/gitconfig.local.symlink
+      success "gitconfig linked"
+      return
+    fi
+
+    git_credential="cache"
+    if [ "$(uname -s)" == "Darwin" ]
+    then
+      git_credential="osxkeychain"
+    fi
+
+    user " - What is your github author name?"
+    read -e git_authorname
+    user " - What is your github author email?"
+    read -e git_authoremail
+
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+
+    success "gitconfig"
+  fi
+}
+
+setup_ssh () {
+  local overwrite_all=false backup_all=false skip_all=false
+
+  if [ ! -d "$DOTFILES_ROOT/local/ssh" ]; then
+    info "no ssh directory in local dotfiles, skipping"
+    return
+  fi
+
+  info "setting up ssh"
+
+  mkdir -p "$HOME/.ssh"
+  chmod 700 "$HOME/.ssh"
+
+  for src in "$DOTFILES_ROOT/local/ssh"/*; do
+    [ -f "$src" ] || continue
+
+    link_file "$src" "$HOME/.ssh/$(basename "$src")"
+  done
+
+  success "ssh config linked"
+}
+
+setup_brewfile () {
+  local overwrite_all=false backup_all=false skip_all=false
+
+  if test ! -f Brewfile.local && test -f $DOTFILES_ROOT/local/homebrew/Brewfile.local
+  then
+    link_file $DOTFILES_ROOT/local/homebrew/Brewfile.local Brewfile.local
+    success "brewfile linked"
+    return
   fi
 }
 
