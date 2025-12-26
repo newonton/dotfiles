@@ -41,8 +41,8 @@ choose_local_dotfiles () {
 
   read n
   if [[ "$n" =~ ^[0-9]+$ ]] && [ "$n" -ge 1 ] && [ "$n" -le "${#dotfiles_paths[@]}" ]; then
-    export DOTFILES_LOCAL="${dotfiles_paths[$((n-1))]}"
-    success "use $DOTFILES_LOCAL"
+    link_file "${dotfiles_paths[$((n-1))]}" "$DOTFILES_ROOT/local"
+    success "use ${dotfiles_paths[$((n-1))]}"
   else
     fail "wrong number"
   fi
@@ -54,9 +54,9 @@ setup_gitconfig () {
   then
     info "setup gitconfig"
 
-    if test -f $DOTFILES_LOCAL/git/gitconfig.local.symlink
+    if test -f $DOTFILES_ROOT/local/git/gitconfig.local.symlink
     then
-      ln -s $DOTFILES_LOCAL/git/gitconfig.local.symlink git/gitconfig.local.symlink
+      ln -s $DOTFILES_ROOT/local/git/gitconfig.local.symlink git/gitconfig.local.symlink
       success "gitconfig linked"
       return
     fi
@@ -79,7 +79,7 @@ setup_gitconfig () {
 }
 
 setup_ssh () {
-  if [ ! -d "$DOTFILES_LOCAL/ssh" ]; then
+  if [ ! -d "$DOTFILES_ROOT/local/ssh" ]; then
     info "no ssh directory in local dotfiles, skipping"
     return
   fi
@@ -89,7 +89,7 @@ setup_ssh () {
   mkdir -p "$HOME/.ssh"
   chmod 700 "$HOME/.ssh"
 
-  for src in "$DOTFILES_LOCAL/ssh"/*; do
+  for src in "$DOTFILES_ROOT/local/ssh"/*; do
     [ -f "$src" ] || continue
 
     link_file "$src" "$HOME/.ssh/$(basename "$src")"
@@ -99,9 +99,9 @@ setup_ssh () {
 }
 
 setup_brewfile () {
-  if test ! -f Brewfile.local && test -f $DOTFILES_LOCAL/homebrew/Brewfile.local
+  if test ! -f Brewfile.local && test -f $DOTFILES_ROOT/local/homebrew/Brewfile.local
   then
-    ln -s $DOTFILES_LOCAL/homebrew/Brewfile.local Brewfile.local
+    ln -s $DOTFILES_ROOT/local/homebrew/Brewfile.local Brewfile.local
     success "brewfile linked"
     return
   fi
