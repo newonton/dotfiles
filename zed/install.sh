@@ -4,6 +4,7 @@
 
 if test -d "/Applications/Zed.app"
 then
+  echo "  Installing Zed config for you."
 
   if test -f "$HOME/.config/zed/settings.json" && test ! -L "$HOME/.config/zed/settings.json"
   then
@@ -15,6 +16,8 @@ then
     mkdir -p "$HOME/.config/zed"
     ln -s "$ZSH/zed/settings.json" "$HOME/.config/zed/settings.json"
   fi
+
+  echo "  Installing Zed CLI for you."
 
   if test ! -L "/usr/local/bin/zed"
   then

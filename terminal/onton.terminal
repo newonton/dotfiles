@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BlinkText</key>
+	<true/>
+	<key>CursorColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxARElVO
+	U1JHQlxOU0NvbG9yU3BhY2VWJGNsYXNzTxAnMC4zMDE5NjA3ODQzIDAuMzAxOTYwNzg0
+	MyAwLjMwMTk2MDc4NDMAEAGAAtIUFRYXWiRjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xv
+	cqIWGFhOU09iamVjdAgRGiQpMjdJTFFTV11kand+qKqssbzFzdAAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
+	</data>
+	<key>CursorType</key>
+	<integer>0</integer>
+	<key>DisableANSIColor</key>
+	<false/>
+	<key>Font</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QHEpl
+	dEJyYWluc01vbm8tUmVndWxhcl9NZWRpdW3SFxgZGlokY2xhc3NuYW1lWCRjbGFzc2Vz
+	Vk5TRm9udKIZG1hOU09iamVjdAgRGiQpMjdJTFFTWF5nbnd+hY6QkpSzuMPM09YAAAAA
+	AAABAQAAAAAAAAAcAAAAAAAAAAAAAAAAAAAA3w==
+	</data>
+	<key>FontAntialias</key>
+	<true/>
+	<key>FontHeightSpacing</key>
+	<real>1</real>
+	<key>FontWidthSpacing</key>
+	<real>1.1004638671875</real>
+	<key>ProfileCurrentVersion</key>
+	<real>2.0899999999999999</real>
+	<key>SelectionColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxARElVO
+	U1JHQlxOU0NvbG9yU3BhY2VWJGNsYXNzTxAnMC4yNTQ5MDE5NjA4IDAuMjU0OTAxOTYw
+	OCAwLjI1NDkwMTk2MDgAEAGAAtIUFRYXWiRjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xv
+	cqIWGFhOU09iamVjdAgRGiQpMjdJTFFTV11kand+qKqssbzFzdAAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
+	</data>
+	<key>UseBoldFonts</key>
+	<true/>
+	<key>UseBrightBold</key>
+	<false/>
+	<key>name</key>
+	<string>onton</string>
+	<key>type</key>
+	<string>Window Settings</string>
+</dict>
+</plist>
