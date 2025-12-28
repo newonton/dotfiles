@@ -39,3 +39,18 @@ defaults write com.apple.Safari.plist IncludeDevelopMenu -bool true
 defaults write com.apple.Safari.plist WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari.plist "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Calendar
+defaults write com.apple.iCal "first day of week" -int 2 # Monday
+defaults write com.apple.iCal "scroll by weeks in week view" -int 2 # Week, Stop on Today
+defaults write com.apple.iCal "CalDefaultCalendar" -string "4361A7DB-3B54-4553-A20A-4A53D01402E9" # onton calendar
+
+defaults write com.apple.iCal "SharedCalendarNotificationsDisabled" -int 0
+defaults write com.apple.iCal "InvitationNotificationsDisabled" -int 0
+
+defaults write com.apple.iCal "TimeZone support enabled" -int 1
+defaults write com.apple.iCal "Show heat map in Year View" -int 1
+defaults write com.apple.iCal "Show Week Numbers" -int 1
+defaults write com.apple.iCal "InviteeDeclineAlerts" -int 1
+defaults write com.apple.iCal "OpenEventsInWindowType" -int 0
+defaults write com.apple.iCal "WarnBeforeSendingInvitations" -int 1
