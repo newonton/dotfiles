@@ -1,6 +1,6 @@
 git/gitconfig.local.symlink
 
-local/
+local
 
 Brewfile.local
 Brewfile.lock.json

@@ -21,31 +21,31 @@
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": true,
-    "selections_menu": true
+    "selections_menu": true,
   },
   "tabs": {
     "git_status": true,
     "close_position": "left",
     "show_diagnostics": "all",
-    "activate_on_close": "neighbour"
+    "activate_on_close": "neighbour",
   },
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
 
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "agent": {
     "default_profile": "ask",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4",
     },
-    "use_modifier_to_send": true
+    "use_modifier_to_send": true,
   },
   "edit_predictions": {
-    "mode": "subtle"
+    "mode": "subtle",
   },
 
   "tab_size": 4,
@@ -55,6 +55,41 @@
   "autosave": "on_window_change",
   "format_on_save": "off", // Global formating for any type of files breaks a lot of things for existing projects.
 
+  "auto_install_extensions": {
+    // langs
+    "basher": true,
+    "csharp": true,
+    "docker-compose": true,
+    "dockerfile": true,
+    "env": true,
+    "git-firefly": true,
+    "golangci-lint": true,
+    "gosum": true,
+    "gotmpl": true,
+    "html": true,
+    "ini": true,
+    "log": true,
+    "lua": true,
+    "make": true,
+    "neocmake": true,
+    "nginx": true,
+    "proto": true,
+    "rainbow-csv": true,
+    "ssh-config": true,
+    "sql": true,
+    "swift": true,
+    "toml": true,
+    "xml": true,
+
+    // themes
+    "one-black-theme": true,
+    "one-dark-pro": true,
+    "one-dark-pro-max": true,
+    "siri": true,
+    "colored-zed-icons-theme": true,
+    "jetbrains-icons": true,
+  },
+
   "languages": {
     "Go": {
       "tab_size": 4,
@@ -63,42 +98,42 @@
       "language_servers": ["gopls" /*, "golangci-lint"*/],
       "formatter": "language_server",
       "code_actions_on_format": {
-        "source.organizeImports": true
-      }
+        "source.organizeImports": true,
+      },
     },
     "Make": {
       "tab_size": 4,
       "hard_tabs": true,
-      "format_on_save": "on"
+      "format_on_save": "on",
     },
     "JSONC": {
       "tab_size": 2,
       "hard_tabs": false,
       "format_on_save": "on",
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
     },
     "YAML": {
       "tab_size": 2,
       "hard_tabs": false,
       "format_on_save": "on",
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
     },
     "Shell Script": {
       "tab_size": 2,
       "hard_tabs": false,
-      "format_on_save": "on"
+      "format_on_save": "on",
     },
     "Git Config": {
       "tab_size": 4,
       "hard_tabs": false,
       "format_on_save": "on",
-      "show_edit_predictions": false
-    }
+      "show_edit_predictions": false,
+    },
   },
   "file_types": {
     "YAML": ["*.yml", "*.yml.example", "*.yaml", "*.yaml.example"],
     "Git Config": ["*gitconfig*"],
-    "Git Ignore": ["*gitignore*"]
+    "Git Ignore": ["*gitignore*"],
   },
 
   "lsp": {
@@ -115,10 +150,10 @@
           "unusedparams": true,
           "unusedvariable": true,
           "unusedwrite": true,
-          "useany": true
+          "useany": true,
         },
         "codelenses": {
-          "gc_details": true
+          "gc_details": true,
         },
         "hints": {
           "assignVariableTypes": true,
@@ -127,11 +162,11 @@
           "constantValues": true,
           "functionTypeParameters": true,
           "parameterNames": true,
-          "rangeVariableTypes": true
-        }
-      }
-    } /*,
-    "golangci-lint": {
+          "rangeVariableTypes": true,
+        },
+      },
+    },
+    /*"golangci-lint": {
       "initialization_options": {
         "command": [
           "golangci-lint",
@@ -142,11 +177,11 @@
           "--show-stats=false"
         ]
       }
-    }*/
+    },*/
   },
 
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
-  }
+    "diagnostics": false,
+  },
 }
