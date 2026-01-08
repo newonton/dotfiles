@@ -4,6 +4,7 @@
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT="$(pwd -P)"
+mkdir -p $HOME/Code
 
 set -e
 
