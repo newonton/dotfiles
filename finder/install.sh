@@ -74,10 +74,10 @@ plutil -insert "NSToolbar Configuration Browser"."TB Item Identifiers" -json \
 ~/Library/Preferences/com.apple.finder.plist
 
 # Set view settings.
-plutil -remove ICloudViewSettings ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
-plutil -remove DesktopViewSettings ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
+plutil -remove ICloudViewSettings                              ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
+plutil -remove DesktopViewSettings                             ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
 plutil -remove StandardViewSettings.ExtendedListViewSettingsV2 ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
-plutil -remove StandardViewSettings.ListViewSettings ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
+plutil -remove StandardViewSettings.ListViewSettings           ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
 
 plutil -insert StandardViewSettings.ExtendedListViewSettingsV2 -json \
   '{
@@ -85,7 +85,7 @@ plutil -insert StandardViewSettings.ExtendedListViewSettingsV2 -json \
     "columns": [
         { "identifier": "name",             "ascending": 1, "visible": 1, "width": 300 },
         { "identifier": "ubiquity",         "ascending": 0, "visible": 1, "width":  35 },
-        { "identifier": "size",             "ascending": 0, "visible": 1, "width":  75 },
+        { "identifier": "size",             "ascending": 0, "visible": 1, "width":  80 },
         { "identifier": "kind",             "ascending": 1, "visible": 1, "width": 115 },
         { "identifier": "dateModified",     "ascending": 0, "visible": 0, "width": 181 },
         { "identifier": "dateCreated",      "ascending": 0, "visible": 0, "width": 181 },
