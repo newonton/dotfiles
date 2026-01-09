@@ -17,4 +17,19 @@ fi
 
 # find the installers and run them iteratively
 echo "› run installers"
-find . -name install.sh | while read installer ; do echo "› run ${installer}" ; sh -c "${installer}" ; done
+find . -name install.sh | while read installer
+do
+  echo "› run ${installer}"
+  sh -c "${installer}"
+done
+
+# find the local installers and run them interatively
+echo "› run local installers"
+if [ -d "$ZSH/local" ]
+then
+  find "$(realpath "$ZSH/local")" -name install.sh | while read installer
+  do
+    echo "› run ${installer}"
+    sh -c "${installer}"
+  done
+fi

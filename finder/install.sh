@@ -149,11 +149,4 @@ case "$answer" in
     ;;
 esac
 
-if [ -f "./local/finder/install.sh" ]
-then
-  sh "./local/finder/install.sh"
-fi
-
-open /System/Library/CoreServices/Finder.app
-
 exit 0

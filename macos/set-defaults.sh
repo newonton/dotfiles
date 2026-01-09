@@ -36,11 +36,13 @@ defaults write NSGlobalDomain KeyRepeat        -int 1
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Switch input sources with CapsLock
+# Switch input sources with CapsLock.
 defaults write NSGlobalDomain TISRomanSwitchState -bool true
 
-# Set input sources ABC and Russian.
+# The globe shows emoji and symbols.
 defaults write com.apple.HIToolbox AppleFnUsageType -int 2
+
+# Set input sources ABC and Russian.
 plutil -replace AppleEnabledInputSources -json \
   '[
     {
@@ -60,7 +62,7 @@ plutil -replace AppleEnabledInputSources -json \
   ]' \
 ~/Library/Preferences/com.apple.HIToolbox.plist
 
-# Text correction
+# Text correction.
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled  -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled      -bool false
@@ -79,16 +81,16 @@ defaults write NSGlobalDomain NSUserDictionaryReplacementItems -array
 
 
 # Calendar
-defaults write com.apple.iCal "first day of week"            -int 2 # Monday
-defaults write com.apple.iCal "scroll by weeks in week view" -int 2 # Week, Stop on Today
-defaults write com.apple.iCal "CalDefaultCalendar"           -string "4361A7DB-3B54-4553-A20A-4A53D01402E9" # onton calendar
+defaults write com.apple.iCal "first day of week"            -int     2 # Monday
+defaults write com.apple.iCal "scroll by weeks in week view" -int     2 # Week, Stop on Today
+defaults write com.apple.iCal CalDefaultCalendar             -string "UseLastSelectedAsDefaultCalendar"
 
-defaults write com.apple.iCal "SharedCalendarNotificationsDisabled" -bool false
-defaults write com.apple.iCal "InvitationNotificationsDisabled"     -bool false
+defaults write com.apple.iCal SharedCalendarNotificationsDisabled -bool false
+defaults write com.apple.iCal InvitationNotificationsDisabled     -bool false
 
-defaults write com.apple.iCal "TimeZone support enabled"     -bool true
-defaults write com.apple.iCal "Show heat map in Year View"   -bool true
-defaults write com.apple.iCal "Show Week Numbers"            -bool true
-defaults write com.apple.iCal "InviteeDeclineAlerts"         -bool true
-defaults write com.apple.iCal "OpenEventsInWindowType"       -bool false
-defaults write com.apple.iCal "WarnBeforeSendingInvitations" -bool true
+defaults write com.apple.iCal "TimeZone support enabled"   -bool true
+defaults write com.apple.iCal "Show heat map in Year View" -bool true
+defaults write com.apple.iCal "Show Week Numbers"          -bool true
+defaults write com.apple.iCal InviteeDeclineAlerts         -bool true
+defaults write com.apple.iCal OpenEventsInWindowType       -bool false
+defaults write com.apple.iCal WarnBeforeSendingInvitations -bool true
