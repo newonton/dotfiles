@@ -8,11 +8,7 @@
 # Run ./set-defaults.sh and you'll be good to go.
 
 # Use AirDrop over every interface. srsly this should be a default.
-# defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
-
-# Run the screensaver if we're in the bottom-left hot corner.
-# defaults write com.apple.dock wvous-bl-corner -int 5
-# defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 # Hide Safari's bookmark bar.
 # defaults write com.apple.Safari.plist ShowFavoritesBar -bool false
@@ -29,9 +25,33 @@
 # Close open System Preferences panes, to prevent them from overriding settings.
 osascript -e 'tell application "System Preferences" to quit'
 
+defaults write NSGlobalDomain AppleInterfaceStyle Dark  # Use dark menu bar and dock.
+
+# Dock
+defaults write com.apple.dock tilesize      -int 55    # Set dock icon size.
+defaults write com.apple.dock magnification -bool true # Enable dock magnification.
+defaults write com.apple.dock largesize     -int 85    # Set dock magnificated icon size.
+
+defaults write com.apple.dock minimize-to-application     -bool true  # Disable open windows Dock section.
+defaults write com.apple.dock show-recents                -bool false # Disable resent apps.
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # Enable app expose gesture for trackpad.
+
+defaults write NSGlobalDomain AppleWindowTabbingMode             always # Always open new documents in tabs.
+defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true   # Ask to keep changes when closing documents.
+
+# Hot Corners
+defaults write com.apple.dock wvous-br-corner   -int 1 # Bottom right corner does nothing.
+defaults write com.apple.dock wvous-br-modifier -int 0
+
+defaults write com.apple.dock wvous-bl-corner   -int 5 # Bottom left corner run the screensaver.
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+killall Dock
+
 # Keyboard
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
-defaults write NSGlobalDomain KeyRepeat        -int 1
+# Set a really fast key repeat.
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat        -int 2
 
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -81,6 +101,9 @@ defaults write NSGlobalDomain NSUserDictionaryReplacementItems -array
 
 
 # Calendar
+# Close open Calendar windows, to prevent them from overriding settings.
+osascript -e 'tell application "Calendar" to quit'
+
 defaults write com.apple.iCal "first day of week"            -int     2 # Monday
 defaults write com.apple.iCal "scroll by weeks in week view" -int     2 # Week, Stop on Today
 defaults write com.apple.iCal CalDefaultCalendar             -string "UseLastSelectedAsDefaultCalendar"
@@ -89,7 +112,7 @@ defaults write com.apple.iCal SharedCalendarNotificationsDisabled -bool false
 defaults write com.apple.iCal InvitationNotificationsDisabled     -bool false
 
 defaults write com.apple.iCal "TimeZone support enabled"   -bool true
-defaults write com.apple.iCal "Show heat map in Year View" -bool true
+defaults write com.apple.iCal "Show heat map in Year View" -bool true # Show events in Year View
 defaults write com.apple.iCal "Show Week Numbers"          -bool true
 defaults write com.apple.iCal InviteeDeclineAlerts         -bool true
 defaults write com.apple.iCal OpenEventsInWindowType       -bool false

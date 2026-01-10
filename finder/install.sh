@@ -7,7 +7,7 @@
 
 echo "  Installing Finder defaults for you."
 
-# Close Finder, to prevent this from overriding settings.
+# Close open Finder windows, to prevent them from overriding settings.
 osascript -e 'tell application "Finder" to quit'
 
 # Preferences
@@ -131,6 +131,7 @@ plutil -insert DesktopViewSettings -json \
   }' \
 ~/Library/Preferences/com.apple.finder.plist
 
+# Remove DS_Store files with old view settings.
 rm -rf "$HOME/Library/Mobile Documents/com~apple~CloudDocs/.DS_Store"
 rm -rf "$HOME/.DS_Store"
 
