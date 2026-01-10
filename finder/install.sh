@@ -59,6 +59,13 @@ defaults write com.apple.finder FXDefaultSearchScope SCcf
 # Cover Flow  : `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle Nlsv
 
+# Set preferred search view style.
+# Icon View   : `icnv`
+# List View   : `Nlsv`
+# Column View : `clmv`
+# Cover Flow  : `Flwv`
+defaults write com.apple.finder FXPreferredSearchViewStyle Nlsv
+
 # Set toolbar.
 plutil -remove "NSToolbar Configuration Browser"."TB Item Identifiers" ~/Library/Preferences/com.apple.finder.plist 2> /dev/null
 plutil -insert "NSToolbar Configuration Browser"."TB Item Identifiers" -json \
