@@ -109,7 +109,8 @@ choose_local_dotfiles () {
   dotfiles_paths=( $(find "$HOME/Documents" -type d -name "dotfiles" 2>/dev/null) )
 
   if [ ${#dotfiles_paths[@]} -eq 0 ]; then
-      fail "dotfile not found in $HOME/Documents"
+      info "dotfile not found in $HOME/Documents"
+      return
   fi
 
   user "Select dotfiles:"
