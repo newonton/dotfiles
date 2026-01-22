@@ -129,6 +129,11 @@
       "format_on_save": "on",
       "show_edit_predictions": false,
     },
+    "HTML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+    },
   },
   "file_types": {
     "YAML": ["*.yml", "*.yml.example", "*.yaml", "*.yaml.example"],
