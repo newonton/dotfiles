@@ -14,6 +14,7 @@ then
 
   go install go.uber.org/mock/mockgen@latest
   go install github.com/newonton/duration@latest
+  go install github.com/newonton/yastat@latest
 fi
 
 exit 0
