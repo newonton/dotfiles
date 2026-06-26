@@ -30,14 +30,21 @@
     "show_diagnostics": "all",
     "activate_on_close": "neighbour",
   },
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "collaboration_panel": {
+    "dock": "left",
     "button": false,
   },
-
-  "features": {
-    "edit_prediction_provider": "zed",
-  },
   "agent": {
+    "dock": "right",
     "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
@@ -45,7 +52,9 @@
     },
     "use_modifier_to_send": true,
   },
+
   "edit_predictions": {
+    "provider": "zed",
     "mode": "subtle",
   },
 
